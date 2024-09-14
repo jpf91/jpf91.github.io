@@ -131,6 +131,7 @@ export default hopeTheme({
       tabs: true,
       tasklist: true,
       vPre: true,
+      footnote: true,
 
       // install chart.js before enabling it
       // chart: true,
@@ -147,7 +148,7 @@ export default hopeTheme({
       // gfm: true,
 
       // install katex before enabling it
-      // katex: true,
+      katex: true,
 
       // install mathjax-full before enabling it
       // mathjax: true,
