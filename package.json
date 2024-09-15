@@ -15,7 +15,8 @@
     "katex": "^0.16.11",
     "vue": "^3.4.31",
     "vuepress": "2.0.0-rc.14",
-    "vuepress-theme-hope": "2.0.0-rc.52"
+    "vuepress-theme-hope": "2.0.0-rc.52",
+    "@waline/client": "^3.3.1"
   },
   "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c"
 }
