@@ -90,6 +90,7 @@ export default hopeTheme({
     comment: {
       provider: "Waline",
       serverURL: "https://comments.jpfau.org",
+      requiredMeta: ["nick", "mail"]
     },
 
     components: {
