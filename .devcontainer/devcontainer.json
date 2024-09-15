@@ -2,11 +2,11 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
 {
 	"name": "vuepress-dev",
-	"image": "docker.io/node:22.8.0-slim",
+	"image": "docker.io/node:20.17.0-slim",
 	"forwardPorts": [8080],
 	"containerEnv": {"COREPACK_ENABLE_DOWNLOAD_PROMPT": "0"},
 	"postCreateCommand": "corepack enable && pnpm -v && apt-get update -y && apt-get install -y git",
-	"postStartCommand": "pnpm docs:clean-dev &",
+	"postStartCommand": "nohup bash -c 'pnpm docs:clean-dev &'",
 	"remoteUser": "root",
 	"customizations": {
 		"vscode": {

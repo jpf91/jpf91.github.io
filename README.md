@@ -3,7 +3,7 @@
 The [jpfau.org](https://jpfau.org) website is built using the [vuepress](https://vuepress.vuejs.org/) static site generator and the [hope theme](https://theme-hope.vuejs.press/). 
 Documentation on supported writing features can be found here: https://theme-hope.vuejs.press/get-started .
 
-In order to handle the node dependency mess, all commands are executed in a docker container. Currently, the node 22.8.0 container is used.
+In order to handle the node dependency mess, all commands are executed in a docker container. Currently, the node LTS release 20.17.0 container is used.
 
 ## Editing content in VSCode
 
@@ -34,7 +34,7 @@ You can use the one included in this repository as a reference.
 
 These commands were used to generate the initial source directory:
 ```bash
-podman run -p 8080:8080 -v .:/data:Z -it --rm docker.io/node:22.8.0-slim /bin/bash
+podman run -p 8080:8080 -v .:/data:Z -it --rm docker.io/node:20.17.0-slim /bin/bash
 cd /data
 corepack enable
 pnpm create vuepress-theme-hope jpfau.org
@@ -42,7 +42,7 @@ pnpm create vuepress-theme-hope jpfau.org
 
 ### Previewing the site locally
 ```bash
-podman run -p 8080:8080 -v .:/data:Z -it --rm docker.io/node:22.8.0-slim /bin/bash
+podman run -p 8080:8080 -v .:/data:Z -it --rm docker.io/node:20.17.0-slim /bin/bash
 cd /data/jpfau.org
 pnpm docs:clean-dev
 ```
@@ -51,7 +51,7 @@ The preview is at [http://localhost:8080/](http://localhost:8080/).
 
 ### Building the site
 ```bash
-podman run -p 8080:8080 -v .:/data:Z -it --rm docker.io/node:22.8.0-slim /bin/bash
+podman run -p 8080:8080 -v .:/data:Z -it --rm docker.io/node:20.17.0-slim /bin/bash
 cd /data/jpfau.org
 pnpm docs:build
 ```
@@ -60,7 +60,7 @@ Generated files are in `src/.vuepress/dist/`.
 
 ## Updating the theme
 ```bash
-podman run -p 8080:8080 -v .:/data:Z -it --rm docker.io/node:22.8.0-slim /bin/bash
+podman run -p 8080:8080 -v .:/data:Z -it --rm docker.io/node:20.17.0-slim /bin/bash
 cd /data/jpfau.org
 pnpm dlx vp-update
 ```
