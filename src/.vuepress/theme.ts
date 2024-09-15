@@ -4,7 +4,7 @@ import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
-  hostname: "https://mister-hope.github.io",
+  hostname: "https://jpfau.org",
 
   author: {
     name: "Mr.Hope",
@@ -15,7 +15,9 @@ export default hopeTheme({
 
   logo: "https://theme-hope-assets.vuejs.press/logo.svg",
 
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  repo: "jpf91/jpf91.github.io",
+
+  docsBranch: "master",
 
   docsDir: "src",
 
