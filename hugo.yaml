@@ -24,7 +24,7 @@ languages:
     menu:
       main:
         - name: Archive
-          url: archives/
+          url: archive/
           weight: 5
         - name: Search
           url: search/
