@@ -9,7 +9,8 @@
 		"vscode": {
 			"extensions": [
 				"valentjn.vscode-ltex",
-				"eamodio.gitlens"
+				"eamodio.gitlens",
+				"eliostruyf.vscode-front-matter"
 			]
 		}
 	}
