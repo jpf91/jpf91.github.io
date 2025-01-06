@@ -13,6 +13,11 @@ enableEmoji: true
 pygmentsUseClasses: true
 mainsections: ["blog"]
 
+frontmatter:
+  date:
+    - ':filename'
+    - ':default'
+
 languages:
   en:
     languageName: "English"
