@@ -15,7 +15,7 @@ outputs:
 
 params:
   headless_cms:
-    engine: "decap"
+    engine: "sveltia"
     site_url: "https://jpfau.org"
     backend:
       name: "github"
