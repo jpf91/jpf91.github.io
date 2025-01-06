@@ -17,11 +17,12 @@ outputs:
 
 params:
   headless_cms:
-    engine: "sveltia"
+    engine: "decap"
     site_url: "https://jpfau.org"
     backend:
       name: "github"
       repo: "jpf91/jpf91.github.io"
+      base_url: https://bauth.mbh4.de/
     collections:
       blog:
         label: "Blog"
