@@ -22,8 +22,9 @@ params:
       repo: "jpf91/jpf91.github.io"
     collections:
       blog:
-        create: true
         label: "Blog"
+        name: "blog"
+        folder: "content/posts"
         create: true
         slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
         fields:
