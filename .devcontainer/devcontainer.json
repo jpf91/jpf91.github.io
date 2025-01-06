@@ -1,8 +1,8 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
 {
-	"name": jpfauorg-dev",
-	"image": "docker.io/hugomods/hugo:std-go-git",
+	"name": "jpfauorg-dev",
+	"image": "docker.io/hugomods/hugo:ext-go-git",
 	"forwardPorts": [1313],
 	"remoteUser": "root",
 	"customizations": {
