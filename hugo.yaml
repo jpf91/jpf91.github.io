@@ -1,0 +1,31 @@
+baseURL: https://jpfau.org/
+languageCode: en-us
+title: JP's Blog
+theme: PaperMod
+
+module:
+  imports:
+  - path: github.com/privatemaker/headless-cms
+
+outputs:
+  home:
+  - HTML
+  - RSS
+
+params:
+  headless_cms:
+    engine: "decap"
+    site_url: "https://jpfau.org"
+    backend:
+      name: "github"
+      repo: "jpf91/jpf91.github.io"
+    collections:
+      blog:
+        create: true
+        label: "Blog"
+        create: true
+        slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
