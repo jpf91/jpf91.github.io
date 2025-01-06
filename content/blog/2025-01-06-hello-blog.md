@@ -13,3 +13,4 @@ Work in progress, come back later.
 * https://www.njfamirm.ir/en/blog/self-hosting-decap-cms/
 * https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite
 * https://discourse.gohugo.io/t/have-date-in-the-filepath-but-not-in-the-urls/42650
+* https://www.softwarecraftsperson.com/posts/2024-02-04-blog-comments-using-utterances/
