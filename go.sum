@@ -1,2 +1,4 @@
+github.com/hugomods/katex v0.3.6 h1:Xl7ruiXuwvEGlz3H02w24B0zRGtHcL4sMc11Ke/aMFE=
+github.com/hugomods/katex v0.3.6/go.mod h1:6ACkMfCEOjLIRwcbS33Yji29C113+zGdBF/5oMfWfZI=
 github.com/privatemaker/headless-cms v0.1.1 h1:pYDKvV8ZmgrAaH5WTtKP1TrwpIXSj3t9u72sTfCxDWE=
 github.com/privatemaker/headless-cms v0.1.1/go.mod h1:ZcHkPZzL9yCsBdmn9FpoIW35snTyj1bDOfqT0ZFJoZE=
