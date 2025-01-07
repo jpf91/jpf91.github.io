@@ -10,6 +10,9 @@ Work in progress, come back later.
 
 <!--more-->
 
+{{< box info >}}
+  Infoboxes are working. Great!
+{{< /box >}}
 
 Inline formulas: {{< katex formula="a^n" inline=true />}}, {{< katex "a^2+b^2=c^2" true />}}.
 
