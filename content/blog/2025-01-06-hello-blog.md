@@ -10,9 +10,21 @@ Work in progress, come back later.
 
 <!--more-->
 
+## Info Boxes
+
 {{< box info >}}
   Infoboxes are working. Great!
 {{< /box >}}
+
+## Audio
+
+{{< audio "https://archive.org/download/test/aufiofile.mp3" >}}
+
+## Video
+
+{{< video "https://archive.org/download/tesfile.mp4" >}}
+
+## Math
 
 Inline formulas: {{< katex formula="a^n" inline=true />}}, {{< katex "a^2+b^2=c^2" true />}}.
 
