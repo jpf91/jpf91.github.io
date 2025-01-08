@@ -1,0 +1,27 @@
+{{ if .Param "series" }}
+    {{ $currentPage := .Page.Permalink }}
+    {{ $name := index .Params.series 0 }}
+
+    <div class="toc series">
+        <details>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">This post is part of the &quot;{{$name}}&quot; series.</span>
+            </summary>
+            <div class="inner">
+                <ol>
+                    {{ $name := lower $name }}
+                    {{ $series := index .Site.Taxonomies.series $name }}
+                    {{ range sort $series.Pages "Date" }}
+                    <li>
+                        {{ if ne $currentPage .Permalink }}
+                            <a href="{{.Permalink}}">{{.LinkTitle}}</a>
+                        {{ else }}
+                            <b>{{.LinkTitle}}</b>
+                        {{ end }}                      
+                    </li>
+                    {{end}}
+                </ol>
+            </div>
+        </details>
+    </div>
+{{ end }}

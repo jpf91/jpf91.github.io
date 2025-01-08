@@ -4,6 +4,7 @@ title: "Hello Blog World"
 description: "A Simple Test Post"
 tags: ["wip"]
 ShowToc: true
+series: ["Simple Test Blog Posts"]
 ---
 
 Work in progress, come back later.
@@ -45,3 +46,6 @@ E*{ {total }}=E*{o 1}+E\_{o 2}=0.274811083+0.023560026=0.298371109
 * https://roneo.org/en/hugo-install-shortcode-collection/
 * https://hugomods.com/docs/content/katex/
 * https://mustafa.page/posts/2023-06-21-hugo-math-papermod/
+* https://navendu.me/posts/list-series-hugo/#:~:text=Add%20a%20line%20that%20says,reader%20knows%20where%20they%20are.
+* https://github.com/adityatelange/hugo-PaperMod/issues/1658
+* https://github.com/adityatelange/hugo-PaperMod/discussions/1657
