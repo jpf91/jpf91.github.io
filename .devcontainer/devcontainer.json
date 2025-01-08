@@ -2,7 +2,12 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
 {
 	"name": "jpfauorg-dev",
-	"image": "docker.io/hugomods/hugo:ext-go-git",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"HUGO_VERSION": "0.140.2"
+		}
+	},
 	"forwardPorts": [1313],
 	"remoteUser": "root",
 	"customizations": {
