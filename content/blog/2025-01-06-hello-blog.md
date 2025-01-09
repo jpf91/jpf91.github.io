@@ -49,3 +49,4 @@ E*{ {total }}=E*{o 1}+E\_{o 2}=0.274811083+0.023560026=0.298371109
 * https://navendu.me/posts/list-series-hugo/#:~:text=Add%20a%20line%20that%20says,reader%20knows%20where%20they%20are.
 * https://github.com/adityatelange/hugo-PaperMod/issues/1658
 * https://github.com/adityatelange/hugo-PaperMod/discussions/1657
+* https://github.com/hugomods/katex/issues/40

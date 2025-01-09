@@ -1,5 +1,8 @@
-{{ partial "katex/assets/css" . }}
-{{ partial "katex/assets/js" . }}
+{{ $data := dict "page" . }}
+{{ with (templates.Defer (dict "data" $data)) }}
+  {{ partial "katex/assets/css" .page }}
+  {{ partial "katex/assets/js" .page }}
+{{ end }}
 
 {{/*  Load plyr.io  */}}
 {{ if or ( .HasShortcode "audio" ) ( .HasShortcode "video" )  ( .HasShortcode "archive-audio" ) }}
