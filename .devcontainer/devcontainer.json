@@ -1,22 +1,21 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
 {
-	"name": "jpfauorg-dev",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"args": {
-			"HUGO_VERSION": "0.140.2"
-		}
-	},
-	"forwardPorts": [1313],
-	"remoteUser": "root",
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"valentjn.vscode-ltex",
-				"eamodio.gitlens",
-				"eliostruyf.vscode-front-matter"
-			]
-		}
-	}
+    "name": "jpfau.org",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "HUGO_VERSION": "0.140.2"
+        }
+    },
+    "forwardPorts": [1313],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "valentjn.vscode-ltex",
+                "eamodio.gitlens",
+                "eliostruyf.vscode-front-matter"
+            ]
+        }
+    }
 }
