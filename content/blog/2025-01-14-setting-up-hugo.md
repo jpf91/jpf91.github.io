@@ -1,10 +1,16 @@
 ---
-author: ["Johannes Pfau"]
-title: "Setting up a Hugo Blog"
-description: "A quick introduction to set up Hugo with PaperMod theme"
-series: ["Blogging with Hugo"]
+title: Setting up a Hugo Blog
+author:
+  - Johannes Pfau
+description: A quick introduction to set up Hugo with PaperMod theme
+tags:
+  - Hugo
+  - IT
+ShowToc: false
+draft: false
+series:
+  - Blogging with Hugo
 ---
-
 Setting up a static HTML based blog can be a bit challenging, and deciding which software and theme to use even more!
 Hugo is a widely used and well-supported solution with some great themes.
 So here's a quick start guide on how to set up a good-looking Hugo blog!
@@ -18,12 +24,14 @@ Using Hugo in a container is a good idea to make sure we don't clutter the host 
 A simple way to use containers and get good integration into Visual Studio Code is using its [Dev Containers](https://code.visualstudio.com/docs/devcontainers/tutorial) feature.
 
 As a first step, let's create a new git repository where we will place all data and create the folder for the Dev Container configuration:
+
 ```bash
 git init jpfau.org
 mkdir jpfau.org/.devcontainer
 ```
 
 Next, let's create the `.devcontainer/devcontainer.json` file with this content:
+
 ```json
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
@@ -55,6 +63,7 @@ Although there are ready-to-use Hugo containers from the HugoMods project, those
 Furthermore, those images don't include SSH support for GIT.
 Because of this, we will build a custom image based on Ubuntu and the latest official Hugo binary releases.
 Add the following to `.devcontainer/Dockerfile`:
+
 ```Dockerfile
 FROM docker.io/ubuntu:24.04
 ARG HUGO_VERSION
@@ -75,22 +84,26 @@ The Hugo version can be specified as a build variable.
 Open the newly created folder in VS Code and let it set up a container.
 Once the container has been built and opened, open a terminal in VS Code.
 Then initialize a new Hugo site:
+
 ```bash
 hugo new site jpfau.org --format yaml
 ```
 
 Next, follow the [PaperMod install instructions](https://github.com/adityatelange/hugo-PaperMod/wiki/Installation) and set up the git submodule:
+
 ```bash
 git submodule add https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
 ```
 
 You might want to set up `.gitignore` to ignore built files:
+
 ```
 /public/
 .hugo_build.lock
 ```
 
 Then, to get the basic site ready, create `content/archive.md`:
+
 ```markdown
 ---
 title: "Archive"
@@ -100,6 +113,7 @@ summary: "archive"
 ```
 
 and `content/search.md`:
+
 ```markdown
 ---
 title: "Search"
@@ -109,6 +123,7 @@ layout: "search"
 ```
 
 Finally, modify your `hugo.yaml` to look like this:
+
 ```yaml
 baseURL: https://jpfau.org/
 languageCode: en-us
@@ -203,6 +218,7 @@ To add articles, simply place them in `content/blog` and name them `YYYY-MM-DD-b
 ## Deploying with GitHub Actions
 
 To build using GitHub Actions and deploy to GitHub Pages, create `.github/workflows/site.yaml` with this content:
+
 ```yaml
 name: site
 
