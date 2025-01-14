@@ -6,7 +6,7 @@ description: A quick introduction to set up Hugo with PaperMod theme
 tags:
   - Hugo
   - IT
-ShowToc: false
+ShowToc: true
 draft: false
 series:
   - Blogging with Hugo
