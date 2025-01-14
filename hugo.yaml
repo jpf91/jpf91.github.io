@@ -115,15 +115,19 @@ params:
           - label: "Tags"
             name: "tags"
             widget: "list"
+            required: false
           - label: "Show TOC"
             name: "ShowToc"
             widget: "boolean"
+            required: false
           - label: "Draft"
             name: "draft"
             widget: "boolean"
+            required: false
           - label: "Series"
             name: "series"
             widget: "list"
+            required: false
             field:
               label: "Name"
               name: "name"
