@@ -95,7 +95,7 @@ params:
       blog:
         label: "Blog"
         name: "blog"
-        folder: "content/posts"
+        folder: "content/blog"
         create: true
         slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
         fields:
