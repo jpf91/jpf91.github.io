@@ -4,6 +4,7 @@ title: "A second post"
 description: "This is the second post"
 tags: ["wip"]
 ShowToc: true
+draft: true
 series: ["Simple Test Blog Posts"]
 ---
 

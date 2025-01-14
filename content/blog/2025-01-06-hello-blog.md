@@ -4,6 +4,7 @@ title: "Hello Blog World"
 description: "A Simple Test Post"
 tags: ["wip"]
 ShowToc: true
+draft: true
 series: ["Simple Test Blog Posts"]
 ---
 
