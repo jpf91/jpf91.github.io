@@ -8,6 +8,10 @@
             "HUGO_VERSION": "0.140.2"
         }
     },
+    "runArgs": [
+        "--userns=keep-id",
+        "--security-opt=label=disable"
+    ],
     "forwardPorts": [1313],
     "customizations": {
         "vscode": {
