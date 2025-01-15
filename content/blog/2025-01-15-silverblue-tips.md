@@ -10,7 +10,7 @@ draft: true
 ---
 
 All in all, Fedora Silverblue is easy to use.
-Some things are however still more complex in Silverblue and this post tries to give some useful hints there.
+Some things are however still more complex in Silverblue, so this post tries to give some useful hints.
 
 <!--more-->
 
