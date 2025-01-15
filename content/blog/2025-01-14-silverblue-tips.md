@@ -6,7 +6,7 @@ description: A list of useful tips when using Silverblue
 tags:
   - Fedora
   - IT
-draft: true
+draft: false
 ---
 
 All in all, Fedora Silverblue is easy to use.

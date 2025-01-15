@@ -8,8 +8,7 @@ tags:
   - Simulation
   - Verilog
   - Verilator
-ShowToc: true
-draft: true
+draft: false
 ---
 Verilator has traditionally been used for co-simulation, with testbenches written in C++.
 With recent versions, it can now also handle pure Verilog simulation. Here's how.
@@ -57,7 +56,7 @@ Let's create the `.devcontainer/devcontainer.json` configuration:
 ```
 There is no ready to use docker image for OSS CAD Suite, so we will build one using the `Dockerfile`.
 The OSS CAD Suite version can be specified in `OSSCAD_VERSION`.
-In addition, we include a workaround for the [Podman SELinux issue]({{< ref "2025-01-15-silverblue-tips.md#visual-studio-code" >}}), the [Surfer](https://surfer-project.org/) waveform viewer and Verilog HDL support.
+In addition, we include a workaround for the [Podman SELinux issue]({{< ref "2025-01-14-silverblue-tips.md#visual-studio-code" >}}), the [Surfer](https://surfer-project.org/) waveform viewer and Verilog HDL support.
 
 The `.devcontainer/Dockerfile` then looks like this:
 ```Dockerfile

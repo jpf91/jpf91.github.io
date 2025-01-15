@@ -7,7 +7,7 @@ tags:
   - OSS EDA
   - Tiny Tapeout
 ShowToc: true
-draft: true
+draft: false
 ---
 Tiny Tapeout has a [local hardening guide](https://tinytapeout.com/guides/local-hardening/) to build your design locally.
 However, the guide does not list required system dependencies and is a bit difficult to follow.
