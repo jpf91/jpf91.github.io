@@ -44,6 +44,10 @@ Let's create the `.devcontainer/devcontainer.json` configuration:
         "--userns=keep-id",
         "--security-opt=label=disable"
     ],
+    // To program FPGA devices from within the container
+    "mounts": [
+        "source=/dev,target=/dev,type=bind"
+    ],
     "customizations": {
         "vscode": {
             "extensions": [
@@ -56,6 +60,7 @@ Let's create the `.devcontainer/devcontainer.json` configuration:
 ```
 There is no ready to use docker image for OSS CAD Suite, so we will build one using the `Dockerfile`.
 The OSS CAD Suite version can be specified in `OSSCAD_VERSION`.
+Adding a mount point for `/dev` will enable using `iceprog` in the container, if we later want to use it to program FPGAs.
 In addition, we include a workaround for the [Podman SELinux issue]({{< ref "2025-01-14-silverblue-tips.md#visual-studio-code" >}}), the [Surfer](https://surfer-project.org/) waveform viewer and Verilog HDL support.
 
 The `.devcontainer/Dockerfile` then looks like this:
