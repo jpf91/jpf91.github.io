@@ -43,3 +43,34 @@ To summarize:
   ```
 {{< /box >}}
 
+## Saleae Logic
+
+As on any linux system, you'll first have to install the udev rules.
+Add the following to `/etc/udev/rules.d/99-SaleaeLogic.rules`:
+```
+#
+# Saleae Logic
+# This file should be installed to /etc/udev/rules.d so that you can access the Saleae Logic hardware without being root
+#
+# Type this at the command prompt: sudo cp 99-SaleaeLogic.rules /etc/udev/rules.d
+#
+
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="0925", ATTR{idProduct}=="3881", MODE="0666"
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="21a9", ATTR{idProduct}=="1001", MODE="0666"
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="21a9", ATTR{idProduct}=="1003", MODE="0666"
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="21a9", ATTR{idProduct}=="1004", MODE="0666"
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="21a9", ATTR{idProduct}=="1005", MODE="0666"
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="21a9", ATTR{idProduct}=="1006", MODE="0666"
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="21a9", ATTR{idProduct}=="1007", MODE="0666"
+```
+
+In addition, the Saleae Logic 2 software uses some libraries that are not installed by default on Silverblue.
+If you run the AppImage file directly, you will therefore just get a `Error Connecting to Socket` message.
+
+To solve this, you need to install the `libnsl` and `libxcrypt-compat` packages.
+Unfortunately, I couldn't get the Saleae software to work in a [distrobox](https://distrobox.it) container, so for now it seems the packages need to be layered:
+```bash
+sudo rpm-ostree install --apply-live libnsl libxcrypt-compat
+```
+
+Let's hope Saleae builds a Flatpak bundle for Flathub at some point, to make installation of the software much easier.
