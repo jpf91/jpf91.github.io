@@ -83,9 +83,12 @@ params:
     - name: LinkedIn
       title: LinkedIn
       url: "https://linkedin.com/in/johannes-pfau-a3963b277"
-    - name: ORCID
+    - name: orcid
       title: ORCID
       url: "https://orcid.org/0000-0003-1087-1814"
+    - name: letterboxd
+      title: LetterBoxd
+      url: "https://letterboxd.com/jpfau"
 
   headless_cms:
     engine: "decap"
