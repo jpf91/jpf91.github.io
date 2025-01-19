@@ -6,6 +6,7 @@ description: How to set up a TFTP server using podman
 tags:
   - Fedora
   - IT
+categories: Network
 draft: false
 ---
 

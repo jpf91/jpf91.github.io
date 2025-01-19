@@ -6,6 +6,7 @@ description: A quick introduction to set up Hugo with PaperMod theme
 tags:
   - Hugo
   - IT
+categories: Network
 ShowToc: true
 draft: false
 series:

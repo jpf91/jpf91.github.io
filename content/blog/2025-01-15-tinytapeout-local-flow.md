@@ -7,6 +7,7 @@ tags:
   - OSS EDA
   - Tiny Tapeout
 ShowToc: true
+categories: Hardware Development
 draft: false
 ---
 Tiny Tapeout has a [local hardening guide](https://tinytapeout.com/guides/local-hardening/) to build your design locally.

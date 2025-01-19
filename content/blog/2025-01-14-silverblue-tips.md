@@ -6,6 +6,7 @@ description: A list of useful tips when using Silverblue
 tags:
   - Fedora
   - IT
+categories: Desktop Linux
 draft: false
 ---
 

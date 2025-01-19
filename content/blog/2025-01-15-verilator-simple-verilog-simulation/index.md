@@ -8,6 +8,7 @@ tags:
   - Simulation
   - Verilog
   - Verilator
+categories: Hardware Development
 draft: false
 ---
 Verilator has traditionally been used for co-simulation, with testbenches written in C++.
