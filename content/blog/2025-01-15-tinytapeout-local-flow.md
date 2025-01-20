@@ -113,3 +113,8 @@ cd factory-test
 ./tt/tt_tool.py --harden --openlane2
 ./tt/tt_tool.py --print-warnings --openlane2
 ```
+
+
+{{< box warning >}}
+  Docker in the container seems to work only if SELinux is disabled on the host.
+{{< /box >}}
