@@ -118,3 +118,47 @@ cd factory-test
 {{< box warning >}}
   Docker in the container seems to work only if SELinux is disabled on the host.
 {{< /box >}}
+
+## Adjusting the Flow
+
+Once you have the flow running locally, you can now look at reports and adjust the flow to your needs.
+Behind the scenes, Tiny Tapeout uses the usual OpenLane 2 flow, so output files and most configuration will follow the usual OpenLane setup.
+For details, refer to the [OpenLane documentation](https://openlane2.readthedocs.io/en/latest/getting_started/newcomers/index.html).
+
+
+To give you a head start, one of the first things you may want to do is check the size of your design.
+All output files, reports and command logs are available in the `runs/wokwi/` folder.
+So for area usage, let's have a look at `27-openroad-globalplacement/openroad-globalplacement.log`.
+The relevant part of the file looks like this:
+```
+[INFO GPL-0006] NumInstances:              1324
+[INFO GPL-0007] NumPlaceInstances:         1021
+[INFO GPL-0008] NumFixedInstances:          303
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                   1040
+[INFO GPL-0011] NumPins:                   3459
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 161.000 111.520 ) um
+[INFO GPL-0013] CoreBBox: (  2.760  2.720 ) ( 158.240 108.800 ) um
+[INFO GPL-0016] CoreArea:             16493.318 um^2
+[INFO GPL-0017] NonPlaceInstsArea:      574.301 um^2
+[INFO GPL-0018] PlaceInstsArea:       11977.738 um^2
+[INFO GPL-0019] Util:                    75.242 %
+[INFO GPL-0020] StdInstsArea:         11977.738 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+```
+
+Here `Util` is probably the main measurement you're looking for.
+
+To customize the Tiny Tapeout setup (for example to set the number of tiles used), edit `info.yaml`.
+Refer to the comments in the [info.yaml file](https://github.com/TinyTapeout/tt10-verilog-template/blob/main/info.yaml) for more information on available options.
+
+For more complex customization, you can directly adjust the OpenLane configuration in the `src/config.json` file.
+If you do, you can refer to these documentation sites:
+* [OpenLane Getting Started](https://openlane2.readthedocs.io/en/latest/getting_started/newcomers/index.html)
+* [OpenLane Config Variables](https://openlane2.readthedocs.io/en/latest/reference/step_config_vars.html)
+* [OpenLane Config Variables](https://openlane2.readthedocs.io/en/latest/reference/step_config_vars.html)
+* [OpenLane Timing Closure](https://openlane2.readthedocs.io/en/latest/usage/timing_closure/index.html)
+* [OpenRoad Main Documentation](https://openroad.readthedocs.io/en/latest/main/src/README.html)
+* [OpenRoad Clock-Tree Synthesis](https://openroad.readthedocs.io/en/latest/main/src/cts/README.html)
+
+In a future blog post, I will summarize common options and provide some examples for common adjustments.
