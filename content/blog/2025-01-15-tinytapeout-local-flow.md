@@ -156,7 +156,6 @@ For more complex customization, you can directly adjust the OpenLane configurati
 If you do, you can refer to these documentation sites:
 * [OpenLane Getting Started](https://openlane2.readthedocs.io/en/latest/getting_started/newcomers/index.html)
 * [OpenLane Config Variables](https://openlane2.readthedocs.io/en/latest/reference/step_config_vars.html)
-* [OpenLane Config Variables](https://openlane2.readthedocs.io/en/latest/reference/step_config_vars.html)
 * [OpenLane Timing Closure](https://openlane2.readthedocs.io/en/latest/usage/timing_closure/index.html)
 * [OpenRoad Main Documentation](https://openroad.readthedocs.io/en/latest/main/src/README.html)
 * [OpenRoad Clock-Tree Synthesis](https://openroad.readthedocs.io/en/latest/main/src/cts/README.html)

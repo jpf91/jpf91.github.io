@@ -5,3 +5,8 @@ Testbench
 testbench
 testbenches
 FPGAs
+FTDI
+UART
+MPSSE
+Tapeout
+OpenLane
