@@ -89,6 +89,9 @@ params:
     - name: letterboxd
       title: LetterBoxd
       url: "https://letterboxd.com/jpfau"
+    - name: anilist
+      title: AniList
+      url: "https://anilist.co/user/jpfau"
 
   headless_cms:
     engine: "decap"
