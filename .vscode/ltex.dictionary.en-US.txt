@@ -12,3 +12,5 @@ Tapeout
 OpenLane
 OpenROAD
 tapeout
+bitmask
+libftdi
