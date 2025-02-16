@@ -10,6 +10,7 @@ tags:
 ShowToc: true
 categories: Hardware Development
 draft: false
+series: ["Transferring Data from USB to FPGA using SPI"]
 ---
 FTDI chips are commonly used for FPGA boards and microcontroller programmer boards.
 Apart from basic UART, advanced FTDI chips also support synchronous IO using the [MPSSE mode](https://ftdichip.com/software-examples/mpsse-projects/).
