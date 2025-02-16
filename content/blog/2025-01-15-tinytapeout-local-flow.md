@@ -122,13 +122,23 @@ cd factory-test
 ## Adjusting the Flow
 
 Once you have the flow running locally, you can now look at reports and adjust the flow to your needs.
-Behind the scenes, Tiny Tapeout uses the usual OpenLane 2 flow, so output files and most configuration will follow the usual OpenLane setup.
+Behind the scenes, Tiny Tapeout uses the OpenLane 2 flow.
+Output files, reports and most configuration will therefore follow the usual OpenLane setup.
 For details, refer to the [OpenLane documentation](https://openlane2.readthedocs.io/en/latest/getting_started/newcomers/index.html).
 
+{{< box info >}}
+  There is sometimes confusion about OpenLane and OpenROAD:
+
+  [OpenLane]() and the [OpenROAD Flow Scripts](https://openroad-flow-scripts.readthedocs.io/en/latest/) are independent RTL-to-GDS **flow** projects:
+  They combine various tools in a process that takes hardware description language files as inputs, and outputs a GDS file ready for tapeout.
+
+  The main [OpenROAD](https://openroad.readthedocs.io/en/latest/) **application** on the other hand performs various steps for digital ASIC design, such as place and route.
+  The OpenROAD **application** is used in both the *OpenROAD Flow Scripts* and the *OpenLane* **flows**.
+{{< /box >}}
 
 To give you a head start, one of the first things you may want to do is check the size of your design.
 All output files, reports and command logs are available in the `runs/wokwi/` folder.
-So for area usage, let's have a look at `27-openroad-globalplacement/openroad-globalplacement.log`.
+For area usage specifically, let's have a look at `27-openroad-globalplacement/openroad-globalplacement.log`.
 The relevant part of the file looks like this:
 ```
 [INFO GPL-0006] NumInstances:              1324
@@ -147,17 +157,17 @@ The relevant part of the file looks like this:
 [INFO GPL-0021] MacroInstsArea:           0.000 um^2
 ```
 
-Here `Util` is probably the main measurement you're looking for.
+Here, `Util` is the measurement you're probably looking for.
 
 To customize the Tiny Tapeout setup (for example to set the number of tiles used), edit `info.yaml`.
 Refer to the comments in the [info.yaml file](https://github.com/TinyTapeout/tt10-verilog-template/blob/main/info.yaml) for more information on available options.
 
-For more complex customization, you can directly adjust the OpenLane configuration in the `src/config.json` file.
+For more complex customization, you can directly adjust the OpenLane configuration in `src/config.json`.
 If you do, you can refer to these documentation sites:
 * [OpenLane Getting Started](https://openlane2.readthedocs.io/en/latest/getting_started/newcomers/index.html)
 * [OpenLane Config Variables](https://openlane2.readthedocs.io/en/latest/reference/step_config_vars.html)
 * [OpenLane Timing Closure](https://openlane2.readthedocs.io/en/latest/usage/timing_closure/index.html)
-* [OpenRoad Main Documentation](https://openroad.readthedocs.io/en/latest/main/src/README.html)
-* [OpenRoad Clock-Tree Synthesis](https://openroad.readthedocs.io/en/latest/main/src/cts/README.html)
+* [OpenROAD Main Documentation](https://openroad.readthedocs.io/en/latest/main/src/README.html)
+* [OpenROAD Clock-Tree Synthesis](https://openroad.readthedocs.io/en/latest/main/src/cts/README.html)
 
-In a future blog post, I will summarize common options and provide some examples for common adjustments.
+In a future blog post, I will summarize some common options and provide some examples for common adjustments.
