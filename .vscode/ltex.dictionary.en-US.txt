@@ -14,3 +14,7 @@ OpenROAD
 tapeout
 bitmask
 libftdi
+Upduino
+bitstream
+deasserted
+toolchain
