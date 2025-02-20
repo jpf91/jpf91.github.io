@@ -93,7 +93,6 @@ Next, we reset the FTDI device and choose the MPSSE mode.
 ```c++
     enforce(ftdi_usb_reset(&_ftdi) == 0, "ftdi_usb_reset failed");
     enforce(ftdi_set_interface(&_ftdi, INTERFACE_ANY) == 0, "ftdi_set_interface failed");
-    // FIXME: Is this required?
     enforce(ftdi_set_bitmode(&_ftdi, 0, 0) == 0, "ftdi_set_bitmode failed");
     enforce(ftdi_set_bitmode(&_ftdi, 0, BITMODE_MPSSE) == 0, "ftdi_set_bitmode failed");
 ```

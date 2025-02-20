@@ -24,7 +24,7 @@ This post explains how we can reuse the FPGA programmer to transmit data to the 
 
 When using the Upduino FPGA, I was looking for a simple way to transfer data from PC to the FPGA.
 Ideally, this would even work without any additional hardware.
-For example, when using the [Tang Nano](https://wiki.sipeed.com/hardware/en/tang/tang-nano-20k/nano-20k.html) series of FPGA boards, you get the programmer and an UART port one single USB connector.
+For example, when using the [Tang Nano](https://wiki.sipeed.com/hardware/en/tang/tang-nano-20k/nano-20k.html) series of FPGA boards, you get the programmer and an UART port on one single USB connector.
 For the Upduino, there's no official support for this.
 But looking at the schematic closely, it turns out we can improvise something.
 
