@@ -35,11 +35,17 @@ sudo setenforce 0
 Then create a distrobox container [that supports running docker](https://github.com/89luca89/distrobox/blob/main/docs/useful_tips.md#using-docker-inside-a-distrobox):
 ```bash
 distrobox create --image fedora:41 --additional-packages "systemd docker" --init --unshare-all tt
-distrobox enter tt
+```
+
+When using a recent Fedora OS, you'll have to disable SELinux on the host and load the `ip_tables` kernel module:
+```bash
+sudo setenforce 0
+sudo modprobe ip_tables
 ```
 
 Next, enable docker in the container and add our user to the docker group:
 ```bash
+distrobox enter tt
 sudo systemctl enable --now docker
 sudo usermod -aG docker $USER
 exit
@@ -113,11 +119,6 @@ cd factory-test
 ./tt/tt_tool.py --harden --openlane2
 ./tt/tt_tool.py --print-warnings --openlane2
 ```
-
-
-{{< box warning >}}
-  Docker in the container seems to work only if SELinux is disabled on the host.
-{{< /box >}}
 
 ## Adjusting the Flow
 
