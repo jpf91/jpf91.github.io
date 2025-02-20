@@ -85,9 +85,9 @@ module fpga_spi(
 
     // Assign outputs. Note: In practice you probably want
     // to latch this data into your main clock domain
-    assign led_r = spi_data[0];
-    assign led_g = spi_data[1];
-    assign led_b = spi_data[2];
+    assign led_r = ~spi_data[0];
+    assign led_g = ~spi_data[1];
+    assign led_b = ~spi_data[2];
 
 endmodule
 ```
@@ -136,9 +136,9 @@ After programming, we should be able to turn the RGB led on and off from our PC 
 ./upduino_spi 0 0 0 0 0 0 1 1
 ```
 
-{{< box warning >}}
-  Careful, this code was not yet tested on the FPGA board and might be broken.
-{{< /box >}}
+If you want to debug the SPI transfer, you can connect your logic analyzer to pins 2 (SCK), 3 (MOSI) and 4 (SS) on J3, the left-hand side connector:
+
+![SPI Logic Analyzer](spi_la.png)
 
 ## Further Work: UART
 
