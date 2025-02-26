@@ -18,3 +18,15 @@ Upduino
 bitstream
 deasserted
 toolchain
+distrobox
+blinky
+Nano
+picocom
+Gowin
+Apio
+PLLs
+netlist
+GOWIN
+Yosys
+Bitstream
+Toolchain
