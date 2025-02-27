@@ -511,7 +511,7 @@ We can program directly to FPGA SRAM:
 openFPGALoader -b tangnano20k build/top.fs
 ```
 
-Alternatively, we can write to the SRAM:
+Alternatively, we can write to the SPI Flash:
 ```bash
 openFPGALoader -b tangnano20k -f build/top.fs
 ```
