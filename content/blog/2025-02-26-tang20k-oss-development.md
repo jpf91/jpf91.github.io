@@ -1,9 +1,10 @@
 ---
-title: Getting Started with VHDL and Verilog Development on Tang Nano FPGAs using OSS Tools
+title: OSS VHDL and Verilog Development on Tang Nano FPGAs
 author:
   - Johannes Pfau
 description: How to use the OSS toolchains for mixed VHDL and Verilog development for the Tang Nano FPGA
 ShowToc: true
+series: ["OSS RISC-V Development on Tang Nano"]
 categories: Hardware Development
 tags:
   - FPGA
@@ -319,6 +320,7 @@ distrobox enter fpga
 ⦗OSS CAD Suite⦘ 📦[jpfau@fpga ~]$
 # Now test some commands:
 yosys -V
+
 Yosys 0.50+49 (git sha1 05c81b3f1, clang++ 18.1.8 -fPIC -O3)
 ```
 

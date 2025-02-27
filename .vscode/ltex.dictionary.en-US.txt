@@ -30,3 +30,5 @@ GOWIN
 Yosys
 Bitstream
 Toolchain
+GPIO
+FreeRTOS
