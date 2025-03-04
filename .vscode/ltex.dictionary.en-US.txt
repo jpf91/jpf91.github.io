@@ -35,3 +35,4 @@ FreeRTOS
 Mbit
 Kbytes
 Mbits
+openFPGALoader
