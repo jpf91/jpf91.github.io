@@ -2,7 +2,7 @@
 title: Dev Containers Tricks for Distrobox
 author:
   - Johannes Pfau
-description: Some interesting points when using DevContainers with distrobox.
+description: Some interesting points when using Dev Containers with distrobox.
 series: ["Container-Based OS and Development"]
 ShowToc: true
 categories: Desktop Linux
