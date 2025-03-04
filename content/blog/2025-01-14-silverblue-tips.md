@@ -3,6 +3,7 @@ title: Fedora Silverblue Tips
 author:
   - Johannes Pfau
 description: A list of useful tips when using Silverblue
+series: ["Container-Based OS and Development"]
 tags:
   - Fedora
   - IT
