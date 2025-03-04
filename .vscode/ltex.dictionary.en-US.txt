@@ -32,3 +32,6 @@ Bitstream
 Toolchain
 GPIO
 FreeRTOS
+Mbit
+Kbytes
+Mbits
