@@ -15,7 +15,10 @@ draft: false
 
 
 The NEORV32 default bootloader has various configuration options.
-If you want to modify any of those, edit the [bootloader.c](https://github.com/stnolting/neorv32/blob/ff24baf41d3bf6dcfed65579408fc5e8767c6d04/sw/bootloader/bootloader.c) file first. 
+Here's how to modify and recompile it.
+<!--more-->
+
+If you want to modify the bootloader, edit the [bootloader.c](https://github.com/stnolting/neorv32/blob/ff24baf41d3bf6dcfed65579408fc5e8767c6d04/sw/bootloader/bootloader.c) file first. 
 Then recompile the bootloader into a `.vhd` file representing the ROM:
 ```bash
 cd lib/neorv32/sw/bootloader
