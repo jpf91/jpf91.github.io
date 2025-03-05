@@ -36,3 +36,6 @@ Mbit
 Kbytes
 Mbits
 openFPGALoader
+venv
+ZipCPU
+cocotb
