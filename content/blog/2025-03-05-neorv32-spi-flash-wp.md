@@ -39,5 +39,7 @@ This means when the core is running, it will drive the low-active `mspi_wp` pin 
 This is a cleaner solution as it does not require a patched bootloader, and it does not need to have a GPIO pin connected for this signal.
 The solution is implemented in [the latest revision](https://github.com/jpf91/neorv32-tang20k/commit/a40a49d96e91049487f85428be74f1cbc22bc8c2) in my NEORV32 repo.
 
-
-When updating the NEORV32 you might notice that the RTL files it uses changed. file_list_soc.f
+{{< box info >}}
+When updating the NEORV32 you might notice that the RTL file names changed.
+You don't have to update the file list in the Makefile manually, NEORV32 ships the [`rtl/file_list_soc.f`](https://github.com/stnolting/neorv32/blob/main/rtl/file_list_soc.f) for this.
+{{< /box >}}
