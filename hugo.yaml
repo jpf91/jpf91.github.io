@@ -16,8 +16,8 @@ mainsections: ["blog"]
 
 frontmatter:
   date:
-    - ':filename'
     - ':default'
+    - ':filename'
 
 languages:
   en:
