@@ -39,3 +39,4 @@ openFPGALoader
 venv
 ZipCPU
 cocotb
+OpenOCD
