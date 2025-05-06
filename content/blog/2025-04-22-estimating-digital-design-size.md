@@ -2,7 +2,7 @@
 title: Quickly Estimating the Size of Digital Designs
 author:
   - Johannes Pfau
-description: A quick way to estimate how many gates or LUTs your design will use
+description: Estimate how many gates or LUTs your design will use
 ShowToc: true
 series: ["OSS ASIC Design"]
 categories: Hardware Development
@@ -15,21 +15,22 @@ tags:
   - Distrobox
 draft: false
 ---
-Experienced developers have some intuition how a hardware description maps to circuits, guiding them how code changes will affect circuit area.
-But as most of the time, checking is better than (educated) guessing.
+Experienced developers have some intuition how a hardware description maps to circuits, enabling them to optimize code for circuit area or speed instinctively.
+But like most of the time, checking is better than (educated) guessing.
 <!--more-->
 
-When working on the D standard library, I learned that the D community had quite high standards on code quality.
-This includes complete test coverage, extensive documentation reviews and also runtime performance.
+When contributing to the D [standard library](https://dlang.org/phobos/), I learned that the [D community](https://dlang.org) has quite high standards on code quality.
+This includes complete test coverage, extensive code and documentation reviews and runtime performance.
 However, when it comes to performance, the guiding principle was to write idiomatic code first and avoid premature optimization.
-If you need to write ugly code as optimization, don't just assume that the code will perform better, but prove it, using benchmarks.
+If you write unidiomatic code as optimization, don't just assume that it will perform better, but prove it using benchmarks.
 The idea behind that was the compilers are often much better at optimizing than we might first think.
 
 Similar considerations apply for hardware development:
-Most gains are usually made through architectural choices anyway.
-But either way, if we want to optimize, we better have a way to measure the results.
-Completely running the design through a RTL2GDS flow or implementing a bitstream is often too slow for rapid application development approaches. 
-But for a quick estimate, synthesis results with technology mapping are sufficient and those can be obtained in only a few seconds using `yosys`.
+Larger gains are usually made through architectural choices anyway.
+But whether it is architectural changes or micro-optimizations, we better have a way to measure the results.
+Completely running the design through a RTL2GDS flow or implementing a bitstream is a possible solution, but it is often too slow for rapid application development approaches. 
+For a simple, quick estimate, synthesis results with technology mapping are sufficient.
+Those can be obtained in only a few seconds using `yosys`.
 
 ## Basic Setup
 
@@ -61,19 +62,19 @@ $(OBJDIR):
 	mkdir -p $(OBJDIR)
 ```
 
-This sets up the `TOP_MODULE`, the name of the top module we want to synthesize.
-Furthermore, `APP_SVERILOG` contains a list of sources and the full paths to those will be stored in `SYN_SVERILOG_PATHS`.
+This sets up the `TOP_MODULE` variable to contain the name of the module we want to synthesize.
+Furthermore, `APP_SVERILOG` contains a list of sources, whereas the full paths to those will be stored in `SYN_SVERILOG_PATHS`.
 Note that some variables are `export`ed.
-Those are available to external tools, and we will need to access them in our synthesis scripts.
+Those are available to external tools, as we will need to access them in our synthesis scripts.
 
-There are two basic rules:
+As for make rules, there are two basic ones:
 The `clean` rule cleans up all generated files.
 The `$(OBJDIR)` rule is used to create the build directory, as the `clean` rule deletes it completely.
 This way we also don't have to check in empty build directories into git.
 
 ## Estimating FPGA Size
 
-Synthesizing for FPGAs is quite simple and was essentially already covered in [this previous post]({{< relref "./2025-02-26-tang20k-oss-development.md" >}}).
+Synthesizing for FPGAs is quite simple and was mostly covered in [this previous post]({{< relref "./2025-02-26-tang20k-oss-development.md" >}}).
 Here's the complete Makefile rule to synthesize for the Gowin FPGA targets:
 ```Makefile
 $(OBJDIR)/gowin.syn.json: $(SYN_SVERILOG_PATHS) | $(OBJDIR)
@@ -81,7 +82,7 @@ $(OBJDIR)/gowin.syn.json: $(SYN_SVERILOG_PATHS) | $(OBJDIR)
 ```
 One thing to note is that we use `-noflatten` here, to obtain hierarchical results.
 
-Let's also add a `synth` rule that synthesizes all targets and a `summary` rule to directly print the hardware resource usage:
+While we're at it, let's also add a `synth` rule that synthesizes all targets and a `summary` rule to directly print the hardware resource usage:
 ```Makefile
 synth: $(OBJDIR)/gowin.syn.json
 
@@ -92,7 +93,7 @@ summary:
 	@cat $(OBJDIR)/gowin.syn.stat
 ```
 
-Now we can just run `make synth` in any distrobox with yosys installed and get these results:
+Now we can just run `make synth` in any [distrobox with yosys]({{< relref "./2025-02-26-tang20k-oss-development.md" >}}) installed and get these results:
 ```
 ========================== FPGA Summary ==========================
 
@@ -184,9 +185,9 @@ Now we can just run `make synth` in any distrobox with yosys installed and get t
 
 ## Estimating ASIC Size
 
-Let's do the same thing for some ASIC target.
-Unfortunately, things here are a bit more complex.
-First, let's extend the Makefile `synth` and `summary` rules:
+Let's do the same thing for an ASIC target.
+Unfortunately, things are a bit more complex for ASICs.
+Let's first extend the Makefile `synth` and `summary` rules:
 
 ```Makefile
 synth: $(OBJDIR)/gowin.syn.json $(OBJDIR)/ihp.syn.json summary
@@ -212,12 +213,12 @@ $(OBJDIR)/ihp.syn.json: $(SYN_SVERILOG_PATHS) | $(OBJDIR)
 	yosys syn_ihp.tcl $(QUIET_FLAG) -l $(OBJDIR)/ihp.syn.log
 ```
 
-As the synthesis script is now much more complex, we can't provide it inline using the `-p` option and save it to `syn_ihp.tcl` instead.
+As the ASIC synthesis script is much more complex, we won't provide it inline using the `-p` option and will save it to `syn_ihp.tcl` instead.
 My synthesis script is a stripped down version of the one [shipped in ORFS](https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts/blob/master/flow/scripts/synth.tcl).
 
-As some steps have been removed, the synthesis will be less optimal than when putting your HDL through the full ORFS flow.
+Some steps have been removed, so the synthesis will be less optimal compared to putting your HDL through the full ORFS flow.
 On the other hand, this simplification makes the script easier to maintain and understand.
-The script also fixes some information for the IHP PDK and therefore can not easily be used with other PDKs.
+The script also hard-codes some information for the IHP PDK, so it can not easily be used with other PDKs.
 Here's the full synthesis script:
 ```tcl
 # Import yosys commands
@@ -274,8 +275,8 @@ tee -o $::env(OBJDIR)/ihp.syn.stat stat -liberty $pdk_stdcell_lib
 check -assert -mapped
 ```
 
-The comments should provide some idea of what the script is doing.
-And finally, here's our `make synth` output for the ASIC part:
+The comments in the script should provide some hints at what it is doing.
+Finally, here's our `make synth` output for the ASIC part:
 ```
 ========================== IHP Summary ==========================
 
@@ -410,8 +411,8 @@ And finally, here's our `make synth` output for the ASIC part:
 ```
 
 {{< box info >}}
-The most reliable information here is the number and type of gates.
-Chip area after synthesis does not consider any potential routing congestion or other placement related issues or overhead.
+The most reliable information that can be obtained here is the number and type of gates.
+Chip area after synthesis does not consider any potential routing congestion or other placement related issues or overhead and is therefore only a rough estimate.
 {{< /box >}}
 
 ## Conclusion
@@ -419,15 +420,15 @@ Chip area after synthesis does not consider any potential routing congestion or 
 With the scripts offered here you can quickly evaluate the size of Verilog designs on FPGA and ASIC.
 Of course the obtained results are somewhat technology specific.
 
-For the FPGA, the main difference to other FPGAs is the LUT size.
-The absolute number of resources between different FPGA types therefore obviously can't be compared.
-However, the resource count can be a useful metric to guide optimization of your designs.
+For the FPGA target, the main difference to other vendors' FPGAs is the LUT size.
+The absolute number of LUTs used therefore obviously can't be compared between different FPGA types.
+However, the resource count can be a useful relative metric to guide optimization of your designs.
 In addition, be careful if the synthesis uses special cells, which might be vendor specific (such as the ALU one).
 
-For the ASIC, results depend on the standard cell library and PDK you use.
+For the ASIC target, results depend on the standard cell library and PDK you use.
 Of course area depends on the technology node, so gate count is more reliable.
 The amount of gates used will however also depend on what kind of gates are available in your standard cell library.
-Again, the obtained metrics are mainly useful to compare different iterations of a design in the same technology.
+Again, the obtained metrics are mainly useful to compare different iterations of a design **in the same technology**.
 
 {{< box warning >}}
 Be careful when you start using specific hard IP: Make sure to also specify it using black boxes.
