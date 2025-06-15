@@ -67,7 +67,7 @@ In order to understand this brief description, it is necessary to understand som
 JTAG essentially forms a register scan chain, which can be used to shift data using the `TCK` clock, is driven by the `TDI` input and sends the output to the `TDO` signal.
 In addition to those signals, JTAG also has a control signal called `TMS`, driving a standardized state machine.
 
-This FSM is given by the figure below, often repeated in JTAG tutorials and taken from [xjtag.com](https://www.xjtag.com/about-jtag/jtag-a-technical-overview/):s
+This FSM is given by the figure below, often repeated in JTAG tutorials and taken from [xjtag.com](https://www.xjtag.com/about-jtag/jtag-a-technical-overview/):
 ![JTAG TAP FSM](tap_state_machine.gif)
 
 Whereas this figure explains the low-level idea of JTAG, the high-level aspects are often assumed and not explained in detail.
@@ -247,9 +247,9 @@ This makes debugging code loaded from XIP much more convenient.
 (gdb) file main.elf
 Reading symbols from main.elf...
 (gdb) load
-Loading section .text, size 0x1038 lma 0x20000000
-Loading section .rodata, size 0x880 lma 0x20001038
-Start address 0x20000000, load size 6328
+Loading section .text, size 0x1038 lma 0xe0000000
+Loading section .rodata, size 0x880 lma 0xe0001038
+Start address 0xe0000000, load size 6328
 Transfer rate: 17 KB/sec, 3164 bytes/write.
 (gdb) break main
 Breakpoint 1 at 0xe00001f8
