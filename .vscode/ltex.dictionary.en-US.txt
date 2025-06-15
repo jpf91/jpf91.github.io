@@ -44,3 +44,8 @@ PDKs
 toolflow
 Distrobox
 ORFS
+bitstreams
+JTAGSPI
+XIP
+deassert
+entrypoint
